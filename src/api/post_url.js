@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+//server url
 const API_URL = 'http://localhost:8000/';
 
 // Create an instance of axios with default headers
