@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+
 //server url
 const API_URL = 'http://localhost:8000/';
 
@@ -15,7 +16,7 @@ const instance = axios.create({
 });
 
 // Function to make a POST request
-const postData = async (data,setId) => {
+ const postData = async (data,setId) => {
   try {
     if(data['url'].length == 0)return;
     const response = await instance.post('/api/', data);
@@ -37,4 +38,18 @@ const postData = async (data,setId) => {
 //     console.error('Error:', error);
 //   });
 
-export default postData;
+ const postUser = async (data) => {
+  try {
+    const response = await instance.post('/user', data);
+    console.log(response.data);
+ 
+    return response.data;
+
+
+  } catch (error) {
+    console.error('Error:', error);
+  }
+};
+
+export default postUser;
+

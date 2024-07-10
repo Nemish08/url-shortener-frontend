@@ -1,32 +1,16 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import postData from './api/post_url'
-function App() {
-  const [url,setUrl] = useState("")
-  const [id,setId] = useState("")
-  const urlhandler = ()=>{
-      postData({"url":url},setId)
-  }
 
-  useEffect(()=>{
-    if(url.length==0){
-      setId("");
-    }
-  },[url])
+import {Route,Router,Routes,BrowserRouter, Outlet} from 'react-router-dom'
+import Home from './componets/Home'
+import Loggin from './componets/Loggin'
+function App() {
+  
   return (
    <>
-      <h1>URL Shortner</h1>
-      <div>
-        <input
-          onChange={(e)=>setUrl(e.target.value)}
-          type='text'
-          placeholder='Example : https://google.com'
-        />
-        <button onClick={urlhandler}>go</button>
-      </div>
-      <div>
-        {id?<a>http:/localhost:8000/url/{id}</a>:<></>}
-      </div>
+     <div>this is header</div> 
+    <Outlet/>
+    <div>footer </div>
    </>
   )
 }
